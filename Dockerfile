@@ -35,4 +35,4 @@ ENV RACK_ENV=production
 
 EXPOSE 9292
 
-CMD ["bundle", "exec", "puma"]
+CMD ["bundle", "exec", "puma", "-p", "9292"]
