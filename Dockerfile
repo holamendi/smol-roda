@@ -1,38 +1,40 @@
-FROM ruby:3.2.2-alpine as Builder
+# Start with a builder stage to install gems
+FROM ruby:3.2.2-slim as Builder
 
-RUN apk add --no-cache --virtual .build-deps build-base git \
-    && apk add --no-cache tzdata \
-    && gem update bundler
+# Install necessary packages to build native extension gems
+RUN apt-get update -qq \
+    && apt-get install -y --no-install-recommends build-essential\
+    && rm -rf /var/lib/apt/lists/*
 
-ENV BUNDLE_WITHOUT="development:test" \
-    BUNDLE_PATH=/bundle \
-    GEM_HOME=/bundle \
-    BUNDLE_JOBS=4 \
-    BUNDLE_RETRY=3
-
-WORKDIR /app
+WORKDIR /usr/src/app
 
 COPY Gemfile Gemfile.lock ./
 
-RUN bundle config set without 'development test' \
-    && bundle install --retry 3 --jobs 4 \
-    && apk del .build-deps
+# Install gems, ignoring the development and test groups
+RUN bundle config set --local without 'development test' \
+    && bundle install --no-cache \
+    && rm -rf /usr/local/bundle/cache/*.gem \
+    && find /usr/local/bundle/gems/ -name "*.c" -delete \
+    && find /usr/local/bundle/gems/ -name "*.o" -delete
 
+# Now, build the final, production image
+FROM ruby:3.2.2-slim
+
+# Install runtime dependencies
+RUN apt-get update -qq \
+    && apt-get install -y --no-install-recommends\
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/src/app
+
+# Copy the Gemfile and installed gems from the builder stage
+COPY --from=Builder /usr/src/app/Gemfile ./Gemfile
+COPY --from=Builder /usr/local/bundle/ /usr/local/bundle/
+
+# Copy the application code
 COPY . .
-
-RUN rm -rf spec tmp log
-
-FROM ruby:3.2.2-alpine
-
-RUN apk add --no-cache tzdata
-
-COPY --from=Builder /bundle /usr/local/bundle
-COPY --from=Builder /app /app
-
-WORKDIR /app
-ENV PATH /usr/local/bundle/bin:$PATH
-ENV RACK_ENV=production
 
 EXPOSE 9292
 
-CMD ["bundle", "exec", "puma", "-p", "9292"]
+# Set the command to run Puma
+CMD ["bundle", "exec", "puma"]
