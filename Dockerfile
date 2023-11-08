@@ -28,4 +28,4 @@ COPY --from=Builder /usr/local/bundle/ /usr/local/bundle/
 COPY . .
 
 # Set the command to run Puma
-CMD ["bundle", "exec", "puma", "-p", "$PORT"]
+CMD ["bundle", "exec", "puma", "-p", "$PORT", "-w", "$PUMA_WORKERS", "-t", "$PUMA_THREADS"]
