@@ -1,0 +1,64 @@
+{
+  "name": "Guybrush Ulysses Threepwood",
+  "title": "Mighty Pirate™",
+  "catchphrase": "I'm Guybrush Threepwood, Mighty Pirate™!",
+  "occupation": "Professional Swashbuckler and Insult Sword Fighter",
+  "education": {
+    "institution": "Melee Island School of Piracy",
+    "degree": "Bachelor of Arrrrts in Plundering",
+    "honors": "Summa Cum Yar-de"
+  },
+  "skills": [
+    "Holding breath for 10 minutes",
+    "Improvising with rubber chickens with pulleys in the middle",
+    "Escaping from elaborate death traps",
+    "Defeating supernatural threats with root beer",
+    "Navigating conversations with a skull named Murray"
+  ],
+  "experience": [
+    {
+      "title": "Ghost Pirate Hunter",
+      "employer": "Self-employed",
+      "description": "Defeated the ghost pirate LeChuck multiple times using unorthodox methods"
+    },
+    {
+      "title": "Governor of Melee Island",
+      "employer": "Melee Island Government",
+      "description": "Brief stint as governor, mostly spent looking for wife Elaine"
+    },
+    {
+      "title": "Freelance Treasure Hunter",
+      "employer": "Various shady characters",
+      "description": "Searched for Big Whoop, discovered it was just a tacky amusement park"
+    }
+  ],
+  "specialAchievements": [
+    "Survived being thrown into the sea with concrete shoes",
+    "Mastered the art of 'Insult Sword Fighting'",
+    "Invented 'Grog XD', an extra-corrosive version of the pirate beverage",
+    "Became proficient in Monkey Kombat, a primate-based martial art"
+  ],
+  "relationships": {
+    "spouse": "Elaine Marley-Threepwood",
+    "archenemy": "LeChuck",
+    "mentor": "The Voodoo Lady",
+    "bestFriend": "A rubber chicken with a pulley in the middle"
+  },
+  "interests": [
+    "Collecting seemingly useless items that always end up saving the day",
+    "Engaging in witty banter with inanimate objects",
+    "Monkeys (studying, not fighting)",
+    "Grog tasting (and subsequent stomach pumping)"
+  ],
+  "references": [
+    "Stan S. Stanman (Used Ship Salesman)",
+    "Wally B. Feed (Cartographer)",
+    "Murray the Demonic Talking Skull"
+  ],
+  "weaknesses": [
+    "Tendency to be caught in elaborate traps",
+    "Allergic to porcelain",
+    "Easily distracted by shiny objects and treasure maps"
+  ],
+  "motto": "Look behind you, a three-headed monkey!"
+}

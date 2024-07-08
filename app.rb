@@ -1,10 +1,14 @@
 require "roda"
 require "logger"
+require "json"
 
 LOGGER = Logger.new($stdout)
+JSON_RESUME = JSON.parse("resume.json")
 
 class App < Roda
   plugin :common_logger, LOGGER
+  plugin :json
+  plugin :type_routing
 
   route do |r|
     r.root do
@@ -15,6 +19,10 @@ class App < Roda
       r.is String do |name|
         "Hello, #{name}!"
       end
+    end
+
+    r.get "resume" do |type|
+      r.json { JSON_RESUME }
     end
   end
 end
