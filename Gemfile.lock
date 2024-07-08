@@ -1,14 +1,15 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    nio4r (2.5.9)
-    puma (6.4.0)
+    nio4r (2.7.3)
+    puma (6.4.2)
       nio4r (~> 2.0)
-    rack (3.0.8)
-    roda (3.73.0)
+    rack (3.1.6)
+    roda (3.81.0)
       rack
 
 PLATFORMS
+  arm64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
@@ -16,7 +17,7 @@ DEPENDENCIES
   roda
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.3.3p89
 
 BUNDLED WITH
    2.4.19
