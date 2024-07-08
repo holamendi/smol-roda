@@ -1,12 +1,12 @@
 {
   "healthchecks": {
     "web": [
-        {
-          "type":        "startup",
-          "path":        "/",
-          "initialDelay": 2,
-          "attempts": 3
-        }
+      {
+        "type": "startup",
+        "path": "/",
+        "initialDelay": 2,
+        "attempts": 3
+      }
     ]
   }
 }

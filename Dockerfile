@@ -1,4 +1,3 @@
-# Builder stage
 FROM ruby:3.3.3-alpine AS builder
 
 ENV RACK_ENV=production
@@ -15,7 +14,6 @@ RUN bundle config set --local without 'development test' && \
     find /usr/local/bundle/gems/ -name "*.c" -delete && \
     find /usr/local/bundle/gems/ -name "*.o" -delete
 
-# Final stage
 FROM ruby:3.3.3-alpine
 
 ENV RACK_ENV=production
