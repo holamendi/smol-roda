@@ -31,6 +31,6 @@ COPY --chown=deploy:deploy . .
 
 USER deploy
 
-EXPOSE 3000
+# EXPOSE 3000
 
 CMD ["bundle", "exec", "puma"]
