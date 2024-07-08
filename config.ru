@@ -11,8 +11,10 @@ class App < Roda
       "Look behind you, a three headed monkey!"
     end
 
-    r.on "say/:message" do |message|
-      "You said: #{message}"
+    r.on "say" do
+      r.is String do |name|
+        "Hello, #{name}!"
+      end
     end
   end
 end
