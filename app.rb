@@ -12,7 +12,7 @@ class App < Roda
 
   route do |r|
     r.root do
-      "Look behind you, a three headed monkey!"
+      "Look behind you, a four headed monkey!"
     end
 
     r.on "say" do
