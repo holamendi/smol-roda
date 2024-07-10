@@ -12,7 +12,7 @@ class App < Roda
 
   route do |r|
     r.root do
-      "Look behind you, a four headed monkey! Secret password: #{ENV["MY_SECRET_PASSWORD"]}"
+      "Look behind you, a three headed monkey!"
     end
 
     r.on "say" do
