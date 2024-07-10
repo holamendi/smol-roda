@@ -3,7 +3,7 @@ require "logger"
 require "json"
 
 LOGGER = Logger.new($stdout)
-JSON_RESUME = JSON.parse("resume.json")
+JSON_RESUME = JSON.parse(File.read("resume.json"))
 
 class App < Roda
   plugin :common_logger, LOGGER
