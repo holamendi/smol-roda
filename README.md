@@ -1,3 +1,3 @@
 A smol roda starter template
 
-hook test 5
+hook test 6
